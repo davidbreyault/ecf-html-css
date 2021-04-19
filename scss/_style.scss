@@ -48,5 +48,246 @@
 }
 
 body {
+	color: $secondary-color;
 	font-family: Montserrat, sans-serif;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 1.5;
+}
+
+h1, h2 {
+	font-weight: 800;
+}
+
+h1 {
+	color: $primary;
+	font-family: Raleway, sans-serif;
+	font-size: 3.8rem;
+	line-height: 1.2;
+	text-shadow: 2px 2px 6px $hero-card-bg;
+	text-align: center;
+	@include sm {
+		font-size: 4.5rem;
+		text-align: left;
+	}
+	@include xl {
+		font-size: 7.2rem;
+	}
+}
+
+a {
+	color: $primary;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1.6rem;
+	padding-right: 1.6rem;
+	@include sm {
+		max-width: calc(36em - 3rem);
+	}
+	@include md {
+		max-width: calc(48em - 3rem);
+	}
+	@include lg {
+		max-width: calc(62em - 3rem);
+	}
+	@include xl {
+		max-width: calc(75em - 3rem);
+	}
+}
+
+/* ############################################# */
+
+/* ################## HEADER ################### */
+
+/* ############################################# */
+
+.header {
+	background-color: $secondary;
+	padding-top: 2.2rem;
+	padding-bottom: 2.2rem;
+	.container {
+		@include flex-layout();
+		position: relative;
+	}
+	&__logo {
+		position: relative;
+		z-index: 3;
+		line-height: 5.6rem;
+		font-size: 2rem;
+		font-family: Raleway, sans-serif;
+		font-weight: 700;
+		text-transform: uppercase;
+		@include xxl {
+			font-size: 4.8rem;
+		}
+	}
+	&__navbar {
+		@include flex-layout(column, center, center);
+		position: fixed;
+		z-index: 2;
+		top: 0%;
+		left: 0%;
+		width: 100vw;
+		min-height: 100vh;
+		background-color: $secondary;
+		transform: translateX(-100%);
+		transition: all .3s ease-in-out;
+		&.open {
+			transform: translateX(0%);
+		}
+		@include lg {
+			@include flex-layout();
+			position: static;
+			width: max-content;
+			min-height: max-content;
+			background-color: transparent;
+			transform: translateX(0%);
+		}
+		@include xxl {
+			font-size: 2rem;
+		}
+		li {
+			width: 75%;
+			@include sm {
+				width: 50%;
+			}
+			@include lg {
+				width: max-content;
+			}
+		}
+		a {
+			display: block;
+			width: 100%;
+			padding: 1rem 2rem;
+			text-transform: uppercase;
+			transition: all .3s ease-in-out;
+			&.active,
+			&:hover,
+			&:focus {
+				background-color: #fff;
+				color: $secondary;
+			}
+		}
+	}
+}
+
+.button {
+	position: relative;
+	z-index: 3;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	border: 0.5px solid $primary;
+	background-color: transparent;
+	&__burger {
+		@include flex-layout(column, space-between, center);
+		width: 100%;
+		height: 50%;
+		margin: 25% auto;
+		&--bar {
+			width: 100%;
+			height: $bar-thickness;
+			border-radius: $bar-thickness / 2;
+			background-color: $primary;
+			transition: all 0.3s ease-in-out;
+		}
+	}
+	&.crossed {
+		position: relative;
+		.button__burger {
+			&--bar {
+				&:nth-of-type(1) {
+					width: 130%;
+					transform: translateY(10px) rotate(45deg);
+				}
+				&:nth-of-type(2) {
+					transform: scaleX(0);
+				}
+				&:nth-of-type(3) {
+					width: 130%;
+					transform: translateY(-9px) rotate(-45deg);
+				}
+			}
+		}
+	}
+	@include lg {
+		display: none;
+	}
+}
+
+.slide-links {
+    animation: slider 0.3s ease-in-out both;
+}
+
+@keyframes slider {
+    from {
+        transform: translateX(-100rem);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ############################################# */
+
+/* ################### HERO #################### */
+
+/* ############################################# */
+
+.hero {
+	background-image: url('../img/hero-bg.jpg');
+	background-position: center;
+	background-size: cover;
+	@media (min-resolution: 144dpi) {
+		background-image: url('../img/hero-bg@2x.jpg');
+	}
+	.container {
+		@include flex-layout(row, flex-end, flex-end);
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+		@include sm {
+			padding-top: 18rem;
+			padding-bottom: 9rem;
+		}
+		@include xl {
+			padding-top: 24rem;
+			padding-bottom: 12rem;
+		}
+	}
+	&__card {
+		@include flex-layout(column, center, center);
+		max-width: 97rem;
+		padding: 3rem 1rem;
+		background-color: $hero-card-bg;
+		@include sm {
+			align-items: flex-end;
+			padding: 3rem;
+		}
+		a {
+			display: block;
+			width: max-content;
+			margin-top: 3rem;
+			padding: 1rem;
+			background-color: $secondary;
+			transition: all .3s ease-in-out;
+			@include sm {
+				font-size: 2.4rem;
+			}
+			@include xl {
+				padding: 2rem 3rem;
+				font-size: 4rem;
+			}
+			&:hover,
+			&:focus {
+				background-color: #fff;
+				color: $secondary;
+			}
+		}
+	}
 }
