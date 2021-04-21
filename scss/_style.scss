@@ -55,13 +55,20 @@ body {
 	line-height: 1.5;
 }
 
-h1, h2 {
-	font-weight: 800;
+h1,
+h2 {
+	font-weight: 700;
+	text-align: center;
+}
+
+h1, 
+h2, 
+h3 {
+	font-family: Raleway, sans-serif;
 }
 
 h1 {
 	color: $primary;
-	font-family: Raleway, sans-serif;
 	font-size: 3.8rem;
 	line-height: 1.2;
 	text-shadow: 2px 2px 6px $hero-card-bg;
@@ -70,8 +77,40 @@ h1 {
 		font-size: 4.5rem;
 		text-align: left;
 	}
+	@include lg {
+		font-size: 6rem;
+	}
 	@include xl {
 		font-size: 7.2rem;
+	}
+}
+
+h2 {
+	margin-bottom: 4rem;
+	font-size: 2.4rem;
+	@include sm {
+		font-size: 3rem;
+	}
+	@include lg {
+		font-size: 4rem;
+	}
+	@include xl {
+		font-size: 4.8rem;
+	}
+}
+
+h3 {
+	margin-top: 1.6rem;
+	margin-bottom: 1.6rem;
+	padding-left: 1.6rem;
+	padding-right: 1.6rem;
+	font-size: 2rem;
+	font-weight: 600;
+	@include sm {
+		font-size: 2.4rem;
+	}
+	@include lg {
+		margin-bottom: 4rem;
 	}
 }
 
@@ -79,6 +118,22 @@ a {
 	color: $primary;
 	font-weight: 600;
 	text-decoration: none;
+}
+
+p {
+	padding-left: 1.6rem;
+	padding-right: 1.6rem;
+	font-size: 1.6rem;
+	font-weight: 400;
+	@include sm {
+		font-size: 2rem;
+	}
+}
+
+section:not(.hero),
+footer {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
 }
 
 .container {
@@ -98,6 +153,9 @@ a {
 	}
 	@include xl {
 		max-width: calc(75em - 3rem);
+	}
+	@include xxl {
+		max-width: calc(87.5em - 3rem);
 	}
 }
 
@@ -244,6 +302,9 @@ a {
 	background-image: url('../img/hero-bg.jpg');
 	background-position: center;
 	background-size: cover;
+	@include xl {
+		min-height: calc(100vh - 10rem);
+	}
 	@media (min-resolution: 144dpi) {
 		background-image: url('../img/hero-bg@2x.jpg');
 	}
@@ -288,6 +349,155 @@ a {
 				background-color: #fff;
 				color: $secondary;
 			}
+		}
+	}
+}
+
+/* ############################################# */
+
+/* ################### NEWS #################### */
+
+/* ############################################# */
+
+
+.news {
+	&__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 3.2rem;
+		@include md {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include xl {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	@include card;
+}
+
+/* ############################################# */
+
+/* ################# STUDENTS ################## */
+
+/* ############################################# */
+
+.students {
+	background-color: $secondary;
+	h2,
+	h3 {
+		color: $primary;
+	}
+	&__profiles {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: 4rem;
+		place-items: center;
+		@include md {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@include xl {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	h3 {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+	a {
+		display: block;
+		font-weight: 400;
+		text-align: center;
+		text-decoration: underline;
+	}
+}
+
+/* ############################################# */
+
+/* ################## UNITS #################### */
+
+/* ############################################# */
+
+.units {
+	&__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 3.2rem;
+		@include md {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@include card;
+}
+
+/* ############################################# */
+
+/* ################# FOOTER #################### */
+
+/* ############################################# */
+
+.footer {
+	background-color: $secondary;
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: 3.2rem;
+		@include xl {
+			@include flex-layout(row, space-between, center);
+			flex: 1;
+		}
+	}
+	address {
+		flex: 1;
+		color: $primary;
+		p {
+			line-height: 3.6rem;
+		}
+		span {
+			display: block;
+			&:first-child {
+				font-weight: 600;
+			}
+			&:last-of-type {
+				text-transform: uppercase;
+			}
+		}
+	}
+	.legal {
+		flex: 1;
+		text-align: center;
+		a {
+			display: inline-block;
+			font-weight: 500;
+			&:first-child {
+				margin-right: 2rem;
+			}
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+	}
+	.social {
+		@include flex-layout(row, center, center);
+		li:not(:last-child) {
+			margin-right: 1.6rem;
+			@include xl {
+				margin-right: 0;
+			}
+		}
+		img {
+			opacity: .85;
+			transition: all .3s ease-in-out;
+			&:hover,
+			&:focus {
+				opacity: 1;
+				transform: scale(1.05);
+			}
+		}
+		@include xl {
+			flex: 1;
+			justify-content: space-evenly;
 		}
 	}
 }
