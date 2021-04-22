@@ -109,9 +109,6 @@ h3 {
 	@include sm {
 		font-size: 2.4rem;
 	}
-	@include lg {
-		margin-bottom: 4rem;
-	}
 }
 
 a {
@@ -373,6 +370,7 @@ footer {
 		}
 	}
 	@include card;
+	
 }
 
 /* ############################################# */
@@ -423,6 +421,10 @@ footer {
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 3.2rem;
+		h3 {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
 		@include md {
 			grid-template-columns: 1fr 1fr;
 		}
@@ -486,7 +488,8 @@ footer {
 				margin-right: 0;
 			}
 		}
-		img {
+		a {
+			display: block;
 			opacity: .85;
 			transition: all .3s ease-in-out;
 			&:hover,
@@ -500,4 +503,70 @@ footer {
 			justify-content: space-evenly;
 		}
 	}
+}
+
+/* ############################################# */
+
+/* ################ OTHER PAGES ################ */
+
+/* ############################################# */
+
+.pagination {
+	@include flex-layout(row, center, center);
+	li:not(:last-child) {
+		margin-right: 2rem;
+	}
+	button {
+		width: 3rem;
+		height: 3rem;
+		margin-bottom: 4rem;
+		padding: 0;
+		background-color: transparent;
+		border-radius: .5rem;
+		border: solid .1rem $secondary;
+		color: $secondary;
+		font-size: 1.6rem;
+		&.active,
+		&:hover,
+		&:focus {
+			background-color: $secondary;
+			color: $primary;
+		}
+	}
+}
+
+.mw84 {
+	max-width: 84rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.course {
+	h2 + p {
+		padding-bottom: 4rem;
+		padding-left: 0rem;
+		padding-right: 0rem;
+		font-size: 1.6rem;
+		font-family: Raleway, sans-serif;
+		font-weight: 600;
+		@include sm {
+			font-size: 2rem;
+		}
+		@include xl {
+			font-size: 2.4rem;
+		}
+	}
+	&__cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 3.2rem;
+		h3 {
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
+		@include md {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@include card;
 }

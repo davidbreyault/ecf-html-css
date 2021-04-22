@@ -37,19 +37,30 @@
 
 @mixin card {
     &__card {
+		position: relative;
 		display: block;
 		border-radius: .4rem;
 		color: currentColor;
 		box-shadow: 0px 0px 48px #00000029;
-		opacity: .85;
 		transform: scale(.99);
 		transition: all .3s ease-in-out;
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: .4rem;
+			background-color: $secondary;
+			opacity: 0;
+			transition: opacity .3s ease-in-out;
+		}
 		&:hover,
 		&:focus {
-			opacity: 1;
 			transform: scale(1);
 			.a-like {
-				background-color: lighten($secondary, 35%);
+				background-color: transparent;
 				span {
 					color: $secondary;
 					transition: all .3s ease-in-out;
@@ -58,6 +69,9 @@
 					stroke: $secondary;
 					transition: all .3s ease-in-out;
 				}
+			}
+			&::after {
+				opacity: .15;
 			}
 		}
 	}
@@ -85,6 +99,9 @@
 		font-weight: 600;
 		transition: all .3s ease-in-out;
 		@include sm {
+			font-size: 2rem;
+		}
+		@include xl() {
 			font-size: 2.4rem;
 		}
 		span {
