@@ -120,3 +120,29 @@
 		margin-bottom: 2.4rem;
 	}
 }
+
+@mixin student-profile($color-title: $primary, $color-link: $primary) {
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: 4rem;
+	place-items: center;
+	@include md {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include xl {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	h3 {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		text-align: center;
+		color: $color-title;
+	}
+	a {
+		display: block;
+		font-weight: 400;
+		color: $color-link;
+		text-align: center;
+		text-decoration: underline;
+	}
+}

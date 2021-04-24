@@ -225,6 +225,7 @@ h1 {
 h2 {
   margin-bottom: 4rem;
   font-size: 2.4rem;
+  line-height: 1;
 }
 @media screen and (min-width: 36em) {
   h2 {
@@ -274,6 +275,11 @@ p {
   }
 }
 
+label,
+input {
+  display: block;
+}
+
 section:not(.hero),
 footer {
   padding-top: 4rem;
@@ -310,6 +316,27 @@ footer {
 @media screen and (min-width: 87.5em) {
   .container {
     max-width: calc(87.5em - 3rem);
+  }
+}
+
+h2 + p,
+.container > p {
+  padding-left: 0rem;
+  padding-right: 0rem;
+  font-size: 1.6rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+}
+@media screen and (min-width: 36em) {
+  h2 + p,
+.container > p {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 75em) {
+  h2 + p,
+.container > p {
+    font-size: 2.4rem;
   }
 }
 
@@ -654,8 +681,7 @@ footer {
 .students {
   background-color: #FD7E37;
 }
-.students h2,
-.students h3 {
+.students h2 {
   color: #FFFFFF;
 }
 .students__profiles {
@@ -674,14 +700,16 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.students h3 {
+.students__profiles h3 {
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  color: #FFFFFF;
 }
-.students a {
+.students__profiles a {
   display: block;
   font-weight: 400;
+  color: #FFFFFF;
   text-align: center;
   text-decoration: underline;
 }
@@ -821,6 +849,7 @@ footer {
   color: #FFFFFF;
 }
 .footer address p {
+  padding: 0;
   line-height: 3.6rem;
 }
 .footer address span {
@@ -834,22 +863,39 @@ footer {
 }
 .footer .legal {
   flex: 1;
-  text-align: center;
 }
 .footer .legal a {
-  display: inline-block;
-  font-weight: 500;
+  display: block;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 .footer .legal a:first-child {
-  margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 .footer .legal a:hover, .footer .legal a:focus {
   text-decoration: underline;
 }
+@media screen and (min-width: 36em) {
+  .footer .legal a {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+  .footer .legal a:first-child {
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
+@media screen and (min-width: 48em) {
+  .footer .legal {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 .footer .social {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .footer .social li:not(:last-child) {
@@ -868,6 +914,11 @@ footer {
 .footer .social a:hover, .footer .social a:focus {
   opacity: 1;
   transform: scale(1.05);
+}
+@media screen and (min-width: 48em) {
+  .footer .social {
+    justify-content: center;
+  }
 }
 @media screen and (min-width: 75em) {
   .footer .social {
@@ -910,23 +961,8 @@ footer {
   margin-right: auto;
 }
 
-.course h2 + p {
-  padding-bottom: 4rem;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  font-size: 1.6rem;
-  font-family: Raleway, sans-serif;
-  font-weight: 600;
-}
-@media screen and (min-width: 36em) {
-  .course h2 + p {
-    font-size: 2rem;
-  }
-}
-@media screen and (min-width: 75em) {
-  .course h2 + p {
-    font-size: 2.4rem;
-  }
+.course p {
+  margin-bottom: 4rem;
 }
 .course__cards {
   display: grid;
@@ -1033,6 +1069,185 @@ footer {
 }
 .course .description {
   margin-bottom: 2.4rem;
+}
+
+.unit__title {
+  padding-top: 9rem;
+  padding-bottom: 9rem;
+  background-image: url("../img/mod-card-code.jpg");
+  background-position: center center;
+  background-size: cover;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 36em) {
+  .unit__title {
+    padding-top: 17.2rem;
+    padding-bottom: 17.2rem;
+  }
+}
+
+section.unit {
+  padding-top: 0;
+}
+
+.all-students__profiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 4rem;
+  place-items: center;
+}
+@media screen and (min-width: 48em) {
+  .all-students__profiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 75em) {
+  .all-students__profiles {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.all-students__profiles h3 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #331100;
+}
+.all-students__profiles a {
+  display: block;
+  font-weight: 400;
+  color: #FD7E37;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.news-story figure {
+  width: 100%;
+  height: auto;
+  margin-bottom: 4rem;
+}
+.news-story figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: center;
+  object-position: center;
+}
+.news-story p {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+.news-story p span {
+  margin-left: 0.8rem;
+  font-weight: 400;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.6rem;
+}
+
+.note img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+}
+.note__features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+.note__features .feature:last-child {
+  grid-column: 1/-1;
+}
+@media screen and (min-width: 36em) {
+  .note__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 75em) {
+  .note__features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.contact .form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.2rem;
+}
+.contact .form__group:last-child {
+  grid-column: 1/-1;
+  justify-self: flex-end;
+}
+@media screen and (min-width: 48em) {
+  .contact .form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 75em) {
+  .contact .form {
+    margin-top: 10rem;
+    margin-left: 11rem;
+    margin-right: 11rem;
+  }
+}
+.contact .form input, .contact .form textarea {
+  width: 100%;
+  padding-left: 1rem;
+  padding-top: 1.05rem;
+  padding-bottom: 1.05rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #707070;
+}
+.contact .form input::placeholder, .contact .form textarea::placeholder {
+  font-style: italic;
+  color: #33110080;
+}
+.contact .form input:focus, .contact .form textarea:focus {
+  border-bottom: 1px solid #FD7E37;
+  background-color: #fff7f2;
+  transition: all 0.3s ease-in-out;
+}
+.contact .form label {
+  margin-bottom: 1rem;
+}
+.contact .form textarea {
+  min-height: 20rem;
+}
+.contact .form button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/-1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.4rem;
+  background-color: #FD7E37;
+  color: #FFFFFF;
+}
+.contact .form button span {
+  margin-right: 2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 75em) {
+  .contact .form button span {
+    font-size: 2.4rem;
+  }
+}
+.contact .form button:hover, .contact .form button:focus {
+  background-color: #FFFFFF;
+  color: #FD7E37;
+  transition: all 0.3s ease-in-out;
+}
+.contact .form button:hover .svg-border, .contact .form button:focus .svg-border {
+  stroke: #FD7E37;
+  transition: all 0.3s ease-in-out;
+}
+.contact .textarea,
+.contact .submit-button {
+  grid-column: 1/-1;
 }
 
 /*# sourceMappingURL=style.css.map */
