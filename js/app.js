@@ -7,27 +7,33 @@ const linksNotInHeader = document.querySelectorAll("a:not(header a)");
 const buttonsNotInHeader = document.querySelectorAll("button:not(header button)");
 
 // Contrôle la visibilité des éléments focusables
-function hideElement() {
+function hideHeaderElements() {
     // Si le menu est fermé et que la largeur de la fenêtre est inférieure à 992px
     if (!menu.classList.contains('open') && window.innerWidth < 992) {
         links.forEach((link) => {
             link.classList.add('visibility-hidden');
         })
-        linksNotInHeader.forEach((link) => {
-            link.classList.remove('visibility-hidden');
-        })
-        buttonsNotInHeader.forEach((button) => {
-            button.classList.remove('visibility-hidden');
-        })
     } else {
         links.forEach((link) => {
             link.classList.remove('visibility-hidden');
         })
+    }
+}
+
+function hideOtherElements() {
+    if (menu.classList.contains('open')) {
         linksNotInHeader.forEach((link) => {
             link.classList.add('visibility-hidden');
         })
         buttonsNotInHeader.forEach((button) => {
             button.classList.add('visibility-hidden');
+        }) 
+    } else {
+        linksNotInHeader.forEach((link) => {
+            link.classList.remove('visibility-hidden');
+        })
+        buttonsNotInHeader.forEach((button) => {
+            button.classList.remove('visibility-hidden');
         })
     }
 }
@@ -46,15 +52,16 @@ burgerButton.addEventListener("click", () => {
         links[i].style.animationDelay = 120 * (i + 1) + "ms";
     }
     // Contrôle la visibilité des éléments focusables
-    hideElement();
+    hideHeaderElements();
+    hideOtherElements();
 });
 
 window.addEventListener("resize", () => {
 	if (window.innerWidth >= 992 && menu.classList.contains("open")) {
-		menu.classList.remove("open");
+	    menu.classList.remove("open");
 		burgerButton.classList.remove("crossed");
 	}
-    hideElement();
+    hideHeaderElements();
 });
 
-hideElement();
+hideHeaderElements();
