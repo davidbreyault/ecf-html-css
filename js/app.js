@@ -8,7 +8,8 @@ const buttonsNotInHeader = document.querySelectorAll("button:not(header button)"
 
 // Contrôle la visibilité des éléments focusables
 function hideElement() {
-    if (!menu.classList.contains('open')) {
+    // Si le menu est fermé et que la largeur de la fenêtre est inférieure à 992px
+    if (!menu.classList.contains('open') && window.innerWidth < 992) {
         links.forEach((link) => {
             link.classList.add('visibility-hidden');
         })
