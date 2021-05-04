@@ -198,61 +198,67 @@ h3 {
   font-family: Raleway, sans-serif;
 }
 
-h1 {
+h1:not([class]) {
   color: #FFFFFF;
+  text-shadow: 2px 2px 6px #00000080;
   font-size: 3.8rem;
   line-height: 1.2;
-  text-shadow: 2px 2px 6px #00000080;
-  text-align: center;
 }
 @media screen and (min-width: 36em) {
-  h1 {
+  h1:not([class]) {
     font-size: 4.5rem;
     text-align: left;
   }
 }
 @media screen and (min-width: 62em) {
-  h1 {
+  h1:not([class]) {
     font-size: 6rem;
   }
 }
 @media screen and (min-width: 75em) {
-  h1 {
+  h1:not([class]) {
     font-size: 7.2rem;
   }
 }
 
-h2 {
+h2,
+.h2-like {
   margin-bottom: 4rem;
-  font-size: 2.4rem;
+  font-size: 3rem;
   line-height: 1;
 }
-@media screen and (min-width: 36em) {
-  h2 {
-    font-size: 3rem;
+@media screen and (min-width: 48em) {
+  h2,
+.h2-like {
+    font-size: 3.5rem;
   }
 }
 @media screen and (min-width: 62em) {
-  h2 {
+  h2,
+.h2-like {
     font-size: 4rem;
   }
 }
 @media screen and (min-width: 75em) {
-  h2 {
+  h2,
+.h2-like {
     font-size: 4.8rem;
   }
 }
 
-h3 {
+h3,
+.h3-like {
   margin-top: 1.6rem;
   margin-bottom: 1.6rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
   font-size: 2rem;
   font-weight: 600;
+  text-align: left;
 }
 @media screen and (min-width: 36em) {
-  h3 {
+  h3,
+.h3-like {
     font-size: 2.4rem;
   }
 }
@@ -316,27 +322,6 @@ footer {
 @media screen and (min-width: 87.5em) {
   .container {
     max-width: calc(87.5em - 3rem);
-  }
-}
-
-h2 + p,
-.container > p {
-  padding-left: 0rem;
-  padding-right: 0rem;
-  font-size: 1.6rem;
-  font-family: Raleway, sans-serif;
-  font-weight: 600;
-}
-@media screen and (min-width: 36em) {
-  h2 + p,
-.container > p {
-    font-size: 2rem;
-  }
-}
-@media screen and (min-width: 75em) {
-  h2 + p,
-.container > p {
-    font-size: 2.4rem;
   }
 }
 
@@ -406,11 +391,15 @@ h2 + p,
   }
 }
 .header__navbar li {
-  width: 75%;
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 @media screen and (min-width: 36em) {
   .header__navbar li {
     width: 50%;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @media screen and (min-width: 62em) {
@@ -435,8 +424,9 @@ h2 + p,
   z-index: 3;
   width: 50px;
   height: 50px;
+  padding: 0;
   cursor: pointer;
-  border: 0.5px solid #FFFFFF;
+  border: none;
   background-color: transparent;
 }
 .button__burger {
@@ -446,12 +436,12 @@ h2 + p,
   align-items: center;
   width: 100%;
   height: 50%;
-  margin: 25% auto;
+  margin: 15% auto;
 }
 .button__burger--bar {
   width: 100%;
-  height: 4px;
-  border-radius: 2px;
+  height: 0.2rem;
+  border-radius: 0.1rem;
   background-color: #FFFFFF;
   transition: all 0.3s ease-in-out;
 }
@@ -460,14 +450,14 @@ h2 + p,
 }
 .button.crossed .button__burger--bar:nth-of-type(1) {
   width: 130%;
-  transform: translateY(10px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);
 }
 .button.crossed .button__burger--bar:nth-of-type(2) {
   transform: scaleX(0);
 }
 .button.crossed .button__burger--bar:nth-of-type(3) {
   width: 130%;
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 @media screen and (min-width: 62em) {
   .button {
@@ -878,12 +868,16 @@ h2 + p,
 @media screen and (min-width: 36em) {
   .footer .legal a {
     display: inline-block;
-    font-size: 1.6rem;
     font-weight: 500;
   }
   .footer .legal a:first-child {
     margin-bottom: 0;
     margin-right: 2rem;
+  }
+}
+@media screen and (min-width: 62em) {
+  .footer .legal a {
+    font-size: 1.6rem;
   }
 }
 @media screen and (min-width: 48em) {
@@ -959,17 +953,21 @@ h2 + p,
   max-width: 84rem;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 0rem;
+  padding-right: 0rem;
 }
 
-.course p {
+.course .mw84 {
   margin-bottom: 4rem;
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
 }
 .course__cards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3.2rem;
 }
-.course__cards h3 {
+.course__cards .h3-like {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
@@ -1085,6 +1083,10 @@ h2 + p,
     padding-bottom: 17.2rem;
   }
 }
+.unit .mw84 {
+  font-family: Raleway, sans-serif;
+  font-weight: 600;
+}
 
 section.unit {
   padding-top: 0;
@@ -1119,6 +1121,9 @@ section.unit {
   text-align: center;
   text-decoration: underline;
 }
+.all-students .h3-like {
+  text-align: center;
+}
 
 .news-story figure {
   width: 100%;
@@ -1137,6 +1142,8 @@ section.unit {
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 .news-story p span {
   margin-left: 0.8rem;
@@ -1149,6 +1156,9 @@ section.unit {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 4rem;
+}
+.note .h3-like {
+  text-align: left;
 }
 .note__features {
   display: grid;
@@ -1248,6 +1258,10 @@ section.unit {
 .contact .textarea,
 .contact .submit-button {
   grid-column: 1/-1;
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=style.css.map */
